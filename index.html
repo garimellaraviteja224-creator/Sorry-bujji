@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sorry Bujji ❤️</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#f5f7ff,#ffeef2); /* LIGHT SOFT BACKGROUND */
+    color:#333;
+    overflow:hidden;
+}
+
+.page{
+    display:none;
+    min-height:100vh;
+    padding:5vh 5vw;
+    text-align:center;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+}
+
+.active{
+    display:flex;
+}
+
+h1{
+    font-size:clamp(2rem,6vw,4rem);
+    text-shadow:1px 1px 6px rgba(0,0,0,0.2);
+}
+
+h2{
+    font-size:clamp(1.4rem,4vw,2.5rem);
+}
+
+p{
+    font-size:clamp(1.2rem,3vw,2rem);
+    line-height:1.6;
+    max-width:900px;
+}
+
+button{
+    padding:18px 45px;
+    margin:15px;
+    font-size:clamp(1.1rem,3vw,1.8rem);
+    border:none;
+    border-radius:50px;
+    background:#ffffff;
+    color:#0077ff;
+    cursor:pointer;
+    box-shadow:0 0 20px rgba(0,0,0,0.2);
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.15);
+    background:#e6f3ff;
+}
+
+/* Blue hearts */
+.heart{
+    position:absolute;
+    color:#4da6ff;
+    animation:float 3s linear infinite;
+}
+
+@keyframes float{
+    0%{transform:translateY(0);opacity:1;}
+    100%{transform:translateY(-350px);opacity:0;}
+}
+
+/* Hug */
+.couple{
+    font-size:clamp(4rem,12vw,8rem);
+    animation:hug 1s infinite alternate;
+}
+@keyframes hug{
+    0%{transform:scale(1);}
+    100%{transform:scale(1.1);}
+}
+
+/* Kneel */
+.kneel{
+    font-size:clamp(4rem,12vw,8rem);
+    animation:kneel 1s infinite alternate;
+}
+@keyframes kneel{
+    0%{transform:translateY(0);}
+    100%{transform:translateY(15px);}
+}
+</style>
+</head>
+
+<body>
+
+<div id="p1" class="page active">
+<h1>Hi Bujji ❤️ Please Smile 😊</h1>
+<button onclick="go(2)">😊 Smile</button>
+<button onclick="hearts()">😐 No Smile</button>
+</div>
+
+<div id="p2" class="page">
+<h1>Want Kiss from Gem 💋</h1>
+<button onclick="kiss()">😘 Kiss Me</button>
+<button onclick="hearts()">❌ No Kiss</button>
+</div>
+
+<div id="p3" class="page">
+<h1>Gem Special Filter Coffee ☕<br>Filled with Love for Bujji</h1>
+<button onclick="go(4)">☕ Drink Coffee</button>
+<button onclick="hearts()">❌ Not Drink Coffee</button>
+</div>
+
+<div id="p4" class="page">
+<h1>Want Hug from Gem 🤗</h1>
+<button onclick="hug()">🤗 Hug Me</button>
+<button onclick="hearts()">❌ No Hug</button>
+</div>
+
+<div id="p5" class="page">
+<h1>Gem is Saying Sorry<br>from Bottom of the Heart 💔</h1>
+<button onclick="go(6)">💖 Accepted Gem Sorry</button>
+<button onclick="hearts()">❌ Not Accepted</button>
+</div>
+
+<div id="p6" class="page">
+<h1>Really Really Sorry My Love 😔</h1>
+<div class="kneel">🙇‍♂️🌹🙋‍♀️</div>
+<p>
+Gem is giving flower to Bujji and saying Sorry ❤️<br><br>
+Without your talk, my heart feels empty…  
+Without your smile, my world feels broken…
+</p>
+</div>
+
+<div id="p7" class="page">
+<h1>💖 I Love You Sooo Much Bujji 💖</h1>
+<h2>Please Smile and Please Talk to Gem 🥺</h2>
+<p>
+"Narazgi sirf ek pal ki hoti hai,<br>
+Pyar zindagi bhar ka hota hai…<br>
+Tumse baat kiye bina,<br>
+mera dil jee hi nahi paata 💔"
+</p>
+<h1>❤️ Love u Jaan ❤️</h1>
+<p>
+Actually without your talk, it is sooo difficult for Gem…  
+Please forgive me and smile and talk to me, my love 💙
+</p>
+</div>
+
+<script>
+function go(n){
+    hearts(30);
+    document.querySelector(".active").classList.remove("active");
+    document.getElementById("p"+n).classList.add("active");
+
+    if(n===6){
+        setTimeout(()=>{
+            document.getElementById("p6").classList.remove("active");
+            document.getElementById("p7").classList.add("active");
+        },5000);
+    }
+}
+
+function hearts(count=25){
+    for(let i=0;i<count;i++){
+        let h=document.createElement("div");
+        h.innerHTML="💙";
+        h.className="heart";
+        h.style.left=Math.random()*window.innerWidth+"px";
+        h.style.top="100%";
+        h.style.fontSize=(20+Math.random()*40)+"px";
+        document.body.appendChild(h);
+        setTimeout(()=>h.remove(),3000);
+    }
+}
+
+function kiss(){
+    hearts(70);
+    document.querySelector(".active").classList.remove("active");
+    document.getElementById("p3").classList.add("active");
+}
+
+function hug(){
+    hearts(90);
+    document.querySelector(".active").classList.remove("active");
+    document.getElementById("p5").classList.add("active");
+}
+</script>
+
+</body>
+</html>
